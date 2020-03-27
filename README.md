@@ -1,6 +1,4 @@
-# cookbook
-simple Cookbook JavaScript application. The application is basically a list of
-recipes which are sorted by date of their creation.
+# 
 
 # Getting Started:
 These instructions will get you a copy of the project up and running on your local machine.
