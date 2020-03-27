@@ -23,7 +23,7 @@ export const deleteTask = id => {
 	})
 }
 
-export const updateTask = (id, newTask) =>
+export const updateUser = (id, newTask) =>
 	fetch(`${baseUrl}/${id}`, {
 		method: 'PUT',
 		body: JSON.stringify(newTask),

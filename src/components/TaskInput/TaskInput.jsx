@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as taskActions from '../task.actions'
+import * as userActions from '../auth/auth.actions'
 
-const TaskInput = ({createTask}) => {
+const TaskInput = ({createTask,createTaskUser}) => {
   const [taskValue, setTaskValue] = useState("");
 
   const handleCreateTask = () => {
-    createTask(taskValue);
+    // createTask(taskValue);
+    createTaskUser("10",taskValue)
     setTaskValue("")
   };
   return (
@@ -25,6 +27,7 @@ const TaskInput = ({createTask}) => {
 };
 
 const mapDispatch = {
-  createTask: taskActions.createTask
+  createTask: taskActions.createTask,
+  createTaskUser: userActions.createTaskUser
 }
 export default connect(null,mapDispatch)(TaskInput);

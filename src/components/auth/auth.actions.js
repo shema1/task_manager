@@ -38,3 +38,15 @@ export const createUser = (name, password, email) => {
         usersGateway.createUser(user).then(() => dispatch(getUsersList()))
     }
 }
+
+
+export const createTaskUser = (id,tasks)=>{
+    return function (dispatch){
+        const user = usersGateway.fetchUser(id)
+        const newUser = {
+            ...user,
+            tasks:[...user.tasks]
+        }
+        usersGateway.updateUser(id,newUser).then(()=>dispatch(getUsersList()))
+    }
+}

@@ -8,23 +8,15 @@ import { tasksListSelector } from "../task.selectors";
 import { usersListSelector, getUserSelector } from "../auth/auth.selectors";
 import {fetchUser} from '../auth/gateway'
 
-const TasksList = ({ getTaskList, getUsers,getUser, tasks, users }) => {
+const TasksList = ({  getUsers, tasks, userTaskList }) => {
   const [user, setUser] = useState({});
   let qs = qs;
-  useEffect(() => {
-    getUsers()
-
-  }, []);
-  
-
-    let a = getUserSelector(users, '1')
-    console.log(a)
-  // }
+ console.log(userTaskList)
   return (
     <>
-  
+    {userTaskList.lenght ===0 ?"work":"list empty"}
       <ul className="tasks-list">
-        {tasks.map(task => (
+        {userTaskList.map(task => (
           <Task key={task.id} {...task} />
         ))}
       </ul>
