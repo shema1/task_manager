@@ -27,9 +27,9 @@ const Login = ({ users, getUsers }) => {
 	}
 
 	return (
-		<div class='login-page'>
-			<div class='form'>
-				<form class={`login-form`} onSubmit={handleSubmit(handleCheck)}>
+		<div className='login-page'>
+			<div className='form'>
+				<form className={`login-form`} onSubmit={handleSubmit(handleCheck)}>
 					<input
 						ref={register}
 						name='name'
@@ -43,7 +43,7 @@ const Login = ({ users, getUsers }) => {
 						placeholder='password'
 					/>
 					<button>login</button>
-					<p class='message'>
+					<p className='message'>
 						Not registered?
 						<Link to='/registration'>Create an account</Link>
 					</p>

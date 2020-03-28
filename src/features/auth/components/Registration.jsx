@@ -24,10 +24,10 @@ const Registration = ({ createUser, getUsers, users }) => {
 	}
 
 	return (
-		<div class='login-page'>
-			<div class='form'>
+		<div className='login-page'>
+			<div className='form'>
 				<form
-					class={`register-form `}
+					className={`register-form `}
 					onSubmit={handleSubmit(handleCreateUser)}
 				>
 					<input
@@ -52,7 +52,7 @@ const Registration = ({ createUser, getUsers, users }) => {
 						required
 					/>
 					<button>create</button>
-					<p class='message'>
+					<p className='message'>
 						Already registered?
 						<Link to='/'>Sign In</Link>
 					</p>

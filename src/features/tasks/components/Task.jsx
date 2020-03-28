@@ -43,7 +43,7 @@ const Task = ({
 					</div>
 					<div className='task-control'>
 						<button className='btn' onClick={() => setSendList(!sendList)}>
-							<i class='far fa-paper-plane'></i>
+							<i className='far fa-paper-plane'></i>
 						</button>
 						<button
 							className='task-update btn'

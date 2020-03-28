@@ -26,7 +26,7 @@ const TaskInput = ({ createTask, id, name, createTaskUser, currentUser }) => {
         required
         placeholder="task name"
       />
-      <button onClick={handleCreateTask} className="  btn create-task__btn">
+      <button onClick={handleCreateTask} className="btn create-task__btn">
         Create
       </button>
     </div>

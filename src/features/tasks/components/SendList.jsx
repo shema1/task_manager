@@ -24,7 +24,7 @@ const SendList = ({ users, taskId, sendTaskUser, updateList, done }) => {
             <li className="user-list__item">
               {user.name}{" "}
               <i
-                class="far fa-paper-plane"
+                className="far fa-paper-plane"
                 onClick={() => handleSendTask(user.id, user)}
               ></i>
             </li>
