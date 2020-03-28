@@ -14,14 +14,15 @@ export const userListRecived = (userList) => {
 
 export const getUsersList = () => {
     return function (dispatch) {
+        usersGateway.fetchUserList().then(data => localStorage.setItem('users', JSON.stringify(data)));
         usersGateway.fetchUserList().then(data => dispatch(userListRecived(data)))
     }
 }
 
 
 
-export const getUser =(id)=>{
-    return function (dispatch){
+export const getUser = (id) => {
+    return function (dispatch) {
         usersGateway.fetchUser(id)
     }
 }
@@ -33,20 +34,30 @@ export const createUser = (name, password, email) => {
             email,
             password,
             tasks: [],
-            gettingTasks:[]
+            gettingTasks: []
         }
         usersGateway.createUser(user).then(() => dispatch(getUsersList()))
     }
 }
 
 
-export const createTaskUser = (id,tasks)=>{
-    return function (dispatch){
-        const user = usersGateway.fetchUser(id)
-        const newUser = {
-            ...user,
-            tasks:[...user.tasks]
+export const createTaskUser = (id, userData, idTask) => {
+    return function (dispatch) {
+        const updateUser = {
+            ...userData,
         }
-        usersGateway.updateUser(id,newUser).then(()=>dispatch(getUsersList()))
+        updateUser.tasks.push(idTask)
+        usersGateway.updateUser(id, updateUser).then(() => dispatch(getUsersList()))
+    }
+}
+
+
+export const sendTaskUser = (id, userData, idTask) => {
+    return function (dispatch) {
+        const updateUser = {
+            ...userData,
+        }
+        updateUser.gettingTasks.push(idTask)
+        usersGateway.updateUser(id, updateUser).then(() => dispatch(getUsersList()))
     }
 }

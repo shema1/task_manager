@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./popup.scss";
 import { connect } from "react-redux";
-import * as taskActions from "../task.actions";
+import * as taskActions from "../tasks/task.actions";
 
 const PopUp = ({ closePopUp, id, taskName, updateTask }) => {
   const [inputValue, setInputValue] = useState(taskName);

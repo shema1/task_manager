@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import "../auth.scss";
-import { Link, useHistory } from "react-router-dom";
+import "./auth.scss";
 import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { usersListSelector } from "../auth.selectors";
 import * as authActions from "../auth.actions";
-import { useForm } from "react-hook-form";
 
 const Login = ({ users, getUsers }) => {
   const { register, handleSubmit } = useForm();
   const history = useHistory()
+  const location = useLocation()
 
   useEffect(() => {
     getUsers();
@@ -22,7 +23,7 @@ const Login = ({ users, getUsers }) => {
     if(!user){
       return alert("dont work blya")
     }
-    history.push(`/user/userId=${user.id}`)
+    history.push(`/tasks-manager?userId=${user.id}`)
   };
 
   return (

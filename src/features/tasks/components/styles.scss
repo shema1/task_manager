@@ -1,5 +1,37 @@
+@import '../../../styles/breakpoints.scss';
+.task-manager{
+    padding: 0 40px;
+    margin: 40px auto;
+    min-width: 300px;
+    width: 850px;
+    text-align: center;
+    @include large  {
+        width: 640px;
+      }
+    @include medium {
+        width: 450px;
+      }
+    @include small {
+        width: 300px;
+      }
+    &__title{
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 50px;
+        text-align: center;
+    }
+}
 
-@import '../breakpoints.scss';
+.user-header{
+  height: 50px;
+  width: 20%;
+  margin-left: auto;
+  background-color: red;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+
 $bright: #df4949;
 $base: #45b29d;
 

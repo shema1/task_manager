@@ -1,6 +1,6 @@
 
 export const TASKS_LIST_RECIEVED = 'TASKS_LIST_RECIEVED';
-import * as tasksGateway from '../gateway'
+import * as tasksGateway from './gateway'
 import moment from 'moment';
 
 export const taskListRecieved = (taskList) => {
@@ -14,26 +14,25 @@ export const taskListRecieved = (taskList) => {
 
 export const getTaskList = () => {
     return function (dispatch) {
+        tasksGateway.fetchTasksList().then(data => localStorage.setItem('tasks', JSON.stringify(data)) )
+
         tasksGateway.fetchTasksList().then(data => dispatch(taskListRecieved(data)))
     }
 }
 
 
-
-
-export const createTask = (taskName) => {
+export const createTask = (taskName,author,taskId) => {
     return function (dispatch) {
         const task = {
             taskName,
             date: moment().format('MMM D YYYY, hh:mm:ss'),
             done: false,
+            author,
+            taskId
         }
         tasksGateway.createTask(task).then(() => dispatch(getTaskList()))
     }
 }
-
-
-export const changeStatusTask = () => { }
 
 export const updateTask = (taskId, taskName, done) => {
     return function (dispatch) {

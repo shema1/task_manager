@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import TodoList from "./components/TodoList/TodoList";
-import store from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from "./components/auth/Login/Login";
-import Registration from "./components/auth/Register/Registration";
-import Error from "./components/Error/Error";
+import store from "./store";
+import TodoList from "./features/tasks/components/TodoList";
+import Login from "./features/auth/components/Login";
+import Error from "./features/error/Error";
+import Registration from "./features/auth/components/Registration";
+
+
 
 class App extends Component {
   render() {
@@ -17,10 +19,10 @@ class App extends Component {
               <Login />
             </Route>
             <Route exact path="/registration">
-              <Registration />
+              <Registration/>
             </Route>
-            <Route path="/user/:userId">
-              <TodoList />
+            <Route path="/tasks-manager:userId?">
+              <TodoList/>
             </Route>
             <Route path="*">
               <Error />
