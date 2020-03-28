@@ -2,14 +2,14 @@ import './auth.scss'
 import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory} from 'react-router-dom'
 import { usersListSelector } from '../auth.selectors'
 import * as authActions from '../auth.actions'
+import PropTypes from 'prop-types';
 
 const Login = ({ users, getUsers }) => {
 	const { register, handleSubmit } = useForm()
 	const history = useHistory()
-	const location = useLocation()
 
 	useEffect(() => {
 		getUsers()
@@ -62,4 +62,10 @@ const mapState = state => {
 const mapDispatch = {
 	getUsers: authActions.getUsersList,
 }
+
+Login.propTypes = {
+	users: PropTypes.array,
+	getUsers: PropTypes.func
+}
+
 export default connect(mapState, mapDispatch)(Login)

@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import './styles.scss'
 import '../../../styles/breakpoints.scss'
-
 import * as authActions from '../../auth/auth.actions'
 import { usersListSelector, getUserSelector } from '../../auth/auth.selectors'
 import { connect } from 'react-redux'
-import { useHistory, useLocation, Link } from 'react-router-dom'
+import {useLocation, Link } from 'react-router-dom'
 import qs from 'qs'
 import TaskInput from './TaskInput'
 import TasksList from './TasksList'
+import PropTypes from 'prop-types';
+
+
 const TodoList = ({ getUsers, users }) => {
 	let location = useLocation()
 	let query = qs.parse(location.search, { ignoreQueryPrefix: true })
@@ -48,9 +50,13 @@ const mapState = state => {
 	}
 }
 const mapDispatch = {
-	// getTaskList: taskActions.getTaskList,
 	getUsers: authActions.getUsersList,
 	getUser: authActions.getUser,
+}
+
+TodoList.propTypes = {
+	users: PropTypes.array,
+	getUsers: PropTypes.func
 }
 
 export default connect(mapState, mapDispatch)(TodoList)

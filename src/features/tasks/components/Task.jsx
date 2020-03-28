@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-
 import { connect } from 'react-redux'
 import * as taskActions from '../task.actions'
 import Popup from '../../popup/Popup'
-import SendPopUp from '../../popup/SendPopUp'
 import SendList from './SendList'
-
+import PropTypes from 'prop-types';
 const Task = ({
 	taskName,
 	date,
@@ -42,10 +40,6 @@ const Task = ({
 						<span className='task-name '>{taskName}</span>
 						<span className='task-info__author-name '>{author}</span>
 						<span className='task-info__date'>{date}</span>
-
-						{/* <span className="task-info__name ">{taskName}</span>
-            <span className="task-info__author-name">{author}</span>
-            <span className="task-info__data">{date}</span> */}
 					</div>
 					<div className='task-control'>
 						<button className='btn' onClick={() => setSendList(!sendList)}>
@@ -72,7 +66,6 @@ const Task = ({
 					popUp={popUp}
 				/>
 			)}
-			{/* {sendPopUp && <SendPopUp users={users} taskId={taskId}/>} */}
 		</>
 	)
 }
@@ -80,6 +73,18 @@ const Task = ({
 const mapDispatch = {
 	deleteTask: taskActions.deleteTask,
 	updateTask: taskActions.updateTask,
+}
+
+Task.propTypes = {
+	taskName:PropTypes.string,
+	date:PropTypes.string,
+	done:PropTypes.bool,
+	id:PropTypes.string,
+	taskId:PropTypes.number,
+	deleteTask:PropTypes.func,
+	updateTask:PropTypes.func,
+	users:PropTypes.array,
+	author: PropTypes.string,
 }
 
 export default connect(null, mapDispatch)(Task)

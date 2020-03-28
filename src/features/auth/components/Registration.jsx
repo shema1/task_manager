@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './auth.scss'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -6,6 +6,7 @@ import * as authAction from '../auth.actions'
 import { usersListSelector } from '../../auth/auth.selectors'
 import { useForm } from 'react-hook-form'
 import { regValidator } from './regValidator'
+import PropTypes from 'prop-types';
 
 const Registration = ({ createUser, getUsers, users }) => {
 	useEffect(() => {
@@ -71,4 +72,12 @@ const mapDispatch = {
 	createUser: authAction.createUser,
 	getUsers: authAction.getUsersList,
 }
+
+Registration.propTypes = {
+	users: PropTypes.array,
+	getUsers: PropTypes.func, 
+	createUser:PropTypes.func
+
+}
+
 export default connect(mapState, mapDispatch)(Registration)
