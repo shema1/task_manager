@@ -1,26 +1,22 @@
-import {USER_LIST_RECIEVED} from "./auth.actions"
+import { USER_LIST_RECIEVED } from './auth.actions'
 
 const initState = {
-    usersList:[]
+	usersList: [],
 }
 
-
 const authReducer = (state = initState, action) => {
+	switch (action.type) {
+		case USER_LIST_RECIEVED: {
+			return {
+				...state,
+				usersList: action.payload.userList,
+			}
+		}
 
-    switch (action.type) {
-
-        case USER_LIST_RECIEVED:{
-            return{
-                ...state,
-                usersList: action.payload.userList
-            }
-        }
-
-
-        default: {
-            return state
-        }
-    }
+		default: {
+			return state
+		}
+	}
 }
 
 export default authReducer
