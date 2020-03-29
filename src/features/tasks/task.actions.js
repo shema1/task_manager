@@ -16,7 +16,6 @@ export const getTaskList = () => {
 		tasksGateway
 			.fetchTasksList()
 			.then(data => localStorage.setItem('tasks', JSON.stringify(data)))
-
 		tasksGateway.fetchTasksList().then(data => dispatch(taskListRecieved(data)))
 	}
 }

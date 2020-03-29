@@ -6,7 +6,7 @@ import * as authAction from '../auth.actions'
 import { usersListSelector } from '../../auth/auth.selectors'
 import { useForm } from 'react-hook-form'
 import { regValidator } from './regValidator'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Registration = ({ createUser, getUsers, users }) => {
 	useEffect(() => {
@@ -75,9 +75,8 @@ const mapDispatch = {
 
 Registration.propTypes = {
 	users: PropTypes.array,
-	getUsers: PropTypes.func, 
-	createUser:PropTypes.func
-
+	getUsers: PropTypes.func,
+	createUser: PropTypes.func,
 }
 
 export default connect(mapState, mapDispatch)(Registration)

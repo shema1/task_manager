@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as taskActions from '../task.actions'
 import Popup from '../../popup/Popup'
 import SendList from './SendList'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 const Task = ({
 	taskName,
 	date,
@@ -56,7 +56,14 @@ const Task = ({
 						</button>
 					</div>
 				</div>
-				{sendList && <SendList users={users} taskId={taskId} done={done} />}
+				{sendList && (
+					<SendList
+						key={Math.floor(Math.random() * 10000)}
+						users={users}
+						taskId={taskId}
+						done={done}
+					/>
+				)}
 			</li>
 			{popUp && (
 				<Popup
@@ -76,14 +83,14 @@ const mapDispatch = {
 }
 
 Task.propTypes = {
-	taskName:PropTypes.string,
-	date:PropTypes.string,
-	done:PropTypes.bool,
-	id:PropTypes.string,
-	taskId:PropTypes.number,
-	deleteTask:PropTypes.func,
-	updateTask:PropTypes.func,
-	users:PropTypes.array,
+	taskName: PropTypes.string,
+	date: PropTypes.string,
+	done: PropTypes.bool,
+	id: PropTypes.string,
+	taskId: PropTypes.number,
+	deleteTask: PropTypes.func,
+	updateTask: PropTypes.func,
+	users: PropTypes.array,
 	author: PropTypes.string,
 }
 

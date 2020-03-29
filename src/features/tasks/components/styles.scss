@@ -131,7 +131,6 @@ $base: #45b29d;
 
 .tasks-list {
   &__task {
-    // height: 50px;
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -142,6 +141,11 @@ $base: #45b29d;
       font-size: 12px;
     }
   }
+  &__message{
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
 
   &__task:hover {
     background: $bright;
