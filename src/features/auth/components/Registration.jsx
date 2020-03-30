@@ -74,9 +74,9 @@ const mapDispatch = {
 };
 
 Registration.propTypes = {
-  users: PropTypes.array,
-  getUsers: PropTypes.func,
-  createUser: PropTypes.func
+  users: PropTypes.array.isRequired,
+  getUsers: PropTypes.func.isRequired,
+  createUser: PropTypes.func.isRequired
 };
 
 export default connect(mapState, mapDispatch)(Registration);

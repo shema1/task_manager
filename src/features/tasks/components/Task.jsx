@@ -17,7 +17,7 @@ const Task = ({
   author
 }) => {
   const [popUp, setPopup] = useState(false);
-  const [sendList, setSendList] = useState(false);
+  const [sendListMenu, setSendListMenu] = useState(false);
 
   const handleDeleteTask = () => {
     deleteTask(id);
@@ -45,7 +45,10 @@ const Task = ({
             <span className="task-info__date">{date}</span>
           </div>
           <div className="task-control">
-            <button className="btn" onClick={() => setSendList(!sendList)}>
+            <button
+              className="btn"
+              onClick={() => setSendListMenu(!sendListMenu)}
+            >
               <i className="far fa-paper-plane"></i>
             </button>
             <button
@@ -59,7 +62,7 @@ const Task = ({
             </button>
           </div>
         </div>
-        {sendList && (
+        {sendListMenu && (
           <SendList
             key={Math.floor(Math.random() * 10000)}
             users={users}

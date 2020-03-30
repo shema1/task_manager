@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
+import "./styles/breakpoints.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "./store";
 import TodoList from "./features/tasks/components/TodoList";
@@ -16,7 +17,7 @@ class App extends Component {
             <Route exact path="/">
               <Login />
             </Route>
-            <Route exact path="/registration">
+            <Route path="/registration">
               <Registration />
             </Route>
             <Route path="/tasks-manager:userId?">

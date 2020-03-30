@@ -42,18 +42,9 @@ export const createTaskUser = (id, userData, idTask) => {
 	return function (dispatch) {
 		const updateUser = {
 			...userData,
+			tasks: [...userData.tasks, idTask]
 		}
-		updateUser.tasks.push(idTask)
 		usersGateway.updateUser(id, updateUser).then(() => dispatch(getUsersList()))
 	}
 }
 
-export const sendTaskUser = (id, userData, idTask) => {
-	return function (dispatch) {
-		const updateUser = {
-			...userData,
-		}
-		updateUser.gettingTasks.push(idTask)
-		usersGateway.updateUser(id, updateUser).then(() => dispatch(getUsersList()))
-	}
-}

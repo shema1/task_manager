@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./styles.scss";
-import "../../../styles/breakpoints.scss";
 import * as authActions from "../../auth/auth.actions";
 import { usersListSelector, getUserSelector } from "../../auth/auth.selectors";
 import { connect } from "react-redux";
@@ -19,26 +18,23 @@ const TodoList = ({ getUsers, users }) => {
     getUsers();
   }, [getUsers]);
 
+  if (!currentUser) return null;
   return (
     <>
-      {currentUser && (
-        <div className="user-header">
-          <span className="user-header__user-img">
-            <i className="fas fa-user"></i>
-          </span>
-          <span className="user-header__name">{currentUser.name}</span>
-          <Link to="/" className="user-header__logout">
-            <i className="fas fa-sign-out-alt"></i>
-          </Link>
-        </div>
-      )}
-      {currentUser && (
-        <div className="task-manager">
-          <h1 className="task-manager__title">task manager</h1>
-          <TaskInput currentUser={currentUser} />
-          <TasksList currentUser={currentUser} users={users} />
-        </div>
-      )}
+      <div className="user-header">
+        <span className="user-header__user-img">
+          <i className="fas fa-user"></i>
+        </span>
+        <span className="user-header__name">{currentUser.name}</span>
+        <Link to="/" className="user-header__logout">
+          <i className="fas fa-sign-out-alt"></i>
+        </Link>
+      </div>
+      <div className="task-manager">
+        <h1 className="task-manager__title">task manager</h1>
+        <TaskInput currentUser={currentUser} />
+        <TasksList currentUser={currentUser} users={users} />
+      </div>
     </>
   );
 };
