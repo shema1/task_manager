@@ -141,11 +141,10 @@ $base: #45b29d;
       font-size: 12px;
     }
   }
-  &__message{
+  &__message {
     font-size: 20px;
     margin-top: 20px;
   }
-
 
   &__task:hover {
     background: $bright;
@@ -154,11 +153,10 @@ $base: #45b29d;
 
 .task-done {
   opacity: 0.7;
-  .task-name{
+  .task-name {
     text-decoration: line-through;
   }
 }
-
 
 .task {
   height: 50px;
@@ -184,19 +182,17 @@ $base: #45b29d;
   width: 100%;
   padding: 0 20px;
 
-  &__author-name{
-
+  &__author-name {
     @include medium {
       display: none;
     }
   }
 
-  &__date{
+  &__date {
     @include small {
       display: none;
     }
   }
-  
 }
 .task-name {
   margin-right: 20px;
@@ -234,7 +230,6 @@ $base: #45b29d;
 .send-tasks {
   overflow-y: scroll;
   height: 100px;
- 
 }
 
 .user-list {

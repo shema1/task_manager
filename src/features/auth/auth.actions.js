@@ -11,7 +11,7 @@ export const userListRecived = userList => {
 }
 
 export const getUsersList = () => {
-	return function(dispatch) {
+	return function (dispatch) {
 		usersGateway
 			.fetchUserList()
 			.then(data => localStorage.setItem('users', JSON.stringify(data)))
@@ -20,13 +20,13 @@ export const getUsersList = () => {
 }
 
 export const getUser = id => {
-	return function(dispatch) {
+	return function (dispatch) {
 		usersGateway.fetchUser(id)
 	}
 }
 
 export const createUser = (name, password, email) => {
-	return function(dispatch) {
+	return function (dispatch) {
 		const user = {
 			name,
 			email,
@@ -39,7 +39,7 @@ export const createUser = (name, password, email) => {
 }
 
 export const createTaskUser = (id, userData, idTask) => {
-	return function(dispatch) {
+	return function (dispatch) {
 		const updateUser = {
 			...userData,
 		}
@@ -49,7 +49,7 @@ export const createTaskUser = (id, userData, idTask) => {
 }
 
 export const sendTaskUser = (id, userData, idTask) => {
-	return function(dispatch) {
+	return function (dispatch) {
 		const updateUser = {
 			...userData,
 		}

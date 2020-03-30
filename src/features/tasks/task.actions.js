@@ -12,7 +12,7 @@ export const taskListRecieved = taskList => {
 }
 
 export const getTaskList = () => {
-	return function(dispatch) {
+	return function (dispatch) {
 		tasksGateway
 			.fetchTasksList()
 			.then(data => localStorage.setItem('tasks', JSON.stringify(data)))
@@ -21,7 +21,7 @@ export const getTaskList = () => {
 }
 
 export const createTask = (taskName, author, taskId) => {
-	return function(dispatch) {
+	return function (dispatch) {
 		const task = {
 			taskName,
 			date: moment().format('MMM D YYYY, hh:mm:ss'),
@@ -34,7 +34,7 @@ export const createTask = (taskName, author, taskId) => {
 }
 
 export const updateTask = (taskId, taskName, done) => {
-	return function(dispatch) {
+	return function (dispatch) {
 		const task = tasksGateway.fetchTask(taskId)
 		const newTask = {
 			...task,
@@ -46,7 +46,7 @@ export const updateTask = (taskId, taskName, done) => {
 }
 
 export const deleteTask = taskId => {
-	return function(dispatch) {
+	return function (dispatch) {
 		tasksGateway.deleteTask(taskId).then(() => dispatch(getTaskList()))
 	}
 }
