@@ -22,7 +22,7 @@ const SendList = ({ users, taskId, sendTaskUser, updateList, done }) => {
         <ul className="user-list">
           {userList.map(user => (
             <li className="user-list__item">
-              {user.name}{" "}
+              {user.email}{" "}
               <i
                 className="far fa-paper-plane"
                 onClick={() => handleSendTask(user.id, user)}
