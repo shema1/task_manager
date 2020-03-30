@@ -1,4 +1,4 @@
-# [Task Manager](https://5e81bb3720871b07b2647b22--nervous-poincare-207087.netlify.com/)
+# [Task Manager](https://nervous-poincare-207087.netlify.com/)
 
 # Getting Started:
 In the project directory, you can run:
